@@ -1,0 +1,67 @@
+@model Universityapp.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Employee</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (ViewBag.result == "true")
+        {
+            <div class="alert alert-success" role="alert">
+                <strong>Well done!</strong> Your staff  details updated successfully.
+            </div>
+        }
+        @if (ViewBag.result == "false")
+        {
+            <div class="alert alert-danger" role="alert">
+                <strong>Oh snap!</strong> Change a few things up and try submitting again.
+            </div>
+        }
+    <input type="hidden" asp-for="EmployeeId" />
+        <div class="form-group">
+            <label asp-for="EmployeeName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EmployeeName" class="form-control" />
+                <span asp-validation-for="EmployeeName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="EmployeeAdress" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="EmployeeAdress" class="form-control" />
+                <span asp-validation-for="EmployeeAdress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Gendre" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Gendre" class="form-control" />
+                <span asp-validation-for="Gendre" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="HaveInsurancef" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="HaveInsurancef" class="form-control" />
+                <span asp-validation-for="HaveInsurancef" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
